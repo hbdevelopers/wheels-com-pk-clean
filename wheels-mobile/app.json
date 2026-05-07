@@ -1,0 +1,122 @@
+{
+  "expo": {
+    "name": "wheels.com.pk",
+    "slug": "wheels-pk",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "wheels",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0A0A0B"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "pk.wheels.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Take photos of your vehicle for listings",
+        "NSPhotoLibraryUsageDescription": "Select photos from your library for vehicle listings",
+        "NSMicrophoneUsageDescription": "Record voice messages in chat",
+        "NSLocationWhenInUseUsageDescription": "Show nearby listings and dealers",
+        "CFBundleURLTypes": [
+          {
+            "CFBundleURLSchemes": ["wheels"]
+          }
+        ]
+      },
+      "config": {
+        "googleMapsApiKey": "YOUR_GOOGLE_MAPS_IOS_KEY"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#0A0A0B"
+      },
+      "package": "pk.wheels.app",
+      "versionCode": 1,
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "RECORD_AUDIO",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "RECEIVE_BOOT_COMPLETED",
+        "VIBRATE"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "YOUR_GOOGLE_MAPS_ANDROID_KEY"
+        }
+      },
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "wheels.com.pk",
+              "pathPrefix": "/listing"
+            },
+            {
+              "scheme": "https",
+              "host": "wheels.com.pk",
+              "pathPrefix": "/dealer"
+            },
+            {
+              "scheme": "https",
+              "host": "wheels.com.pk",
+              "pathPrefix": "/auction"
+            }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/notification-icon.png",
+          "color": "#00E676",
+          "sounds": ["./assets/sounds/notification.wav"]
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow wheels.com.pk to access your photos to upload vehicle images."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow wheels.com.pk to use your camera to take vehicle photos."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "YOUR_EAS_PROJECT_ID"
+      },
+      "apiUrl": "https://api.wheels.com.pk/api/v1",
+      "wsUrl": "wss://api.wheels.com.pk"
+    }
+  }
+}
